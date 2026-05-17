@@ -14,9 +14,12 @@ def sent_emotion():
     sadness = response['sadness']
     dominant_emotion = response['dominant_emotion']
 
-    return (f"For the given statement, the system response is 'anger': {anger},"
-            f" 'disgust': {disgust}, 'fear': {fear}, 'joy': {joy} and 'sadness': {sadness}."
-            f" The dominant emotion is {dominant_emotion}")
+    if dominant_emotion == None:
+        return "Invalid text! Please try again!."
+    else:   
+        return (f"For the given statement, the system response is 'anger': {anger},"
+                f" 'disgust': {disgust}, 'fear': {fear}, 'joy': {joy} and 'sadness': {sadness}."
+                f" The dominant emotion is {dominant_emotion}")
 
 @app.route("/")
 def render_index_page():
